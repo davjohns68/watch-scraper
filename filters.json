@@ -1,0 +1,29 @@
+{
+  "_comment": "Listings matching a keyword in 'filter_keywords' are excluded, unless their title also contains one of that keyword's 'exceptions'.",
+    "filter_keywords": [
+	{ "keyword": "parts only", "exceptions": [] },
+	{ "keyword": "for parts", "exceptions": [] },
+	{ "keyword": "not working", "exceptions": [] },
+	{ "keyword": "broken", "exceptions": [] },
+	{ "keyword": "as is", "exceptions": [] },
+	{ "keyword": "untested", "exceptions": [] },
+	{ "keyword": "invicta", "exceptions": ["pro diver", "reserve", "grand"] },
+	{ "keyword": "armani", "exceptions": [] },
+	{ "keyword": "Michael Kors", "exceptions": [] },
+	{ "keyword": "Nautica", "exceptions": [] },
+	{ "keyword": "Fossil", "exceptions": [] },
+	{ "keyword": "Kenneth Cole", "exceptions": [] },
+	{ "keyword": "Guess", "exceptions": [] },
+	{ "keyword": "Anne Klein", "exceptions": [] },
+	{ "keyword": "DKNY", "exceptions": [] },
+	{ "keyword": "MVMT", "exceptions": [] },
+	{ "keyword": "novelty", "exceptions": [] },
+	{ "keyword": "tommy bahama", "exceptions": [] },
+	{ "keyword": "relic", "exceptions": [] },
+	{ "keyword": "zoo york", "exceptions": [] },
+	{ "keyword": "skagen", "exceptions": [] },
+	{ "keyword": "nixon", "exceptions": [] },
+	{ "keyword": "diesel", "exceptions": [] },
+	{ "keyword": "perry ellis", "exceptions": [] }
+    ]
+}
