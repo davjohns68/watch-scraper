@@ -24,6 +24,9 @@
 	{ "keyword": "skagen", "exceptions": [] },
 	{ "keyword": "nixon", "exceptions": [] },
 	{ "keyword": "diesel", "exceptions": [] },
-	{ "keyword": "perry ellis", "exceptions": [] }
+	{ "keyword": "perry ellis", "exceptions": [] },
+	{ "keyword": "lorus", "exceptions": [] },
+	{ "keyword": "wenger", "exceptions": [] },
+	{ "keyword": "stuhrling", "exceptions": [] }
     ]
 }

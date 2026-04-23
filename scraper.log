@@ -590,3 +590,563 @@
     exclude 'perry ellis'
   [filter] Removed 1950 listing(s) matching filter rules.
   Done. 0 new, 24 updated. DB: /home/opc/goodwill-scraper/watches.db
+[2026-04-16T06:00:01.395474+00:00] Starting scrape…
+  Fetched page 1 — 39/1972 listings
+  Fetched page 2 — 78/1972 listings
+  Fetched page 3 — 117/1972 listings
+  Fetched page 4 — 156/1972 listings
+  Fetched page 5 — 195/1972 listings
+  Fetched page 6 — 234/1972 listings
+  Fetched page 7 — 273/1972 listings
+  Fetched page 8 — 312/1972 listings
+  Fetched page 9 — 351/1972 listings
+  Fetched page 10 — 390/1972 listings
+  Fetched page 11 — 429/1972 listings
+  Fetched page 12 — 468/1972 listings
+  Fetched page 13 — 507/1972 listings
+  Fetched page 14 — 546/1972 listings
+  Fetched page 15 — 585/1972 listings
+  Fetched page 16 — 624/1972 listings
+  Fetched page 17 — 663/1972 listings
+  Fetched page 18 — 702/1972 listings
+  Fetched page 19 — 741/1972 listings
+  Fetched page 20 — 780/1972 listings
+  Fetched page 21 — 819/1972 listings
+  Fetched page 22 — 858/1972 listings
+  Fetched page 23 — 897/1972 listings
+  Fetched page 24 — 936/1972 listings
+  Fetched page 25 — 975/1972 listings
+  Fetched page 26 — 1014/1972 listings
+  Fetched page 27 — 1053/1972 listings
+  Fetched page 28 — 1092/1972 listings
+  Fetched page 29 — 1131/1972 listings
+  Fetched page 30 — 1170/1972 listings
+  Fetched page 31 — 1209/1972 listings
+  Fetched page 32 — 1248/1972 listings
+  Fetched page 33 — 1287/1972 listings
+  Fetched page 34 — 1326/1972 listings
+  Fetched page 35 — 1365/1972 listings
+  Fetched page 36 — 1404/1972 listings
+  Fetched page 37 — 1443/1972 listings
+  Fetched page 38 — 1482/1972 listings
+  Fetched page 39 — 1521/1972 listings
+  Fetched page 40 — 1560/1972 listings
+  Fetched page 41 — 1599/1972 listings
+  Fetched page 42 — 1638/1972 listings
+  Fetched page 43 — 1677/1972 listings
+  Fetched page 44 — 1716/1972 listings
+  Fetched page 45 — 1755/1972 listings
+  Fetched page 46 — 1794/1972 listings
+  Fetched page 47 — 1833/1972 listings
+  Fetched page 48 — 1872/1972 listings
+  Fetched page 49 — 1911/1972 listings
+  Fetched page 50 — 1950/1972 listings
+  Fetched page 51 — 1972/1972 listings
+  Fetched 1972 total listings from API.
+  [filter] 24 rule(s) loaded:
+    exclude 'parts only'
+    exclude 'for parts'
+    exclude 'not working'
+    exclude 'broken'
+    exclude 'as is'
+    exclude 'untested'
+    exclude 'invicta' unless title contains: 'pro diver', 'reserve', 'grand'
+    exclude 'armani'
+    exclude 'michael kors'
+    exclude 'nautica'
+    exclude 'fossil'
+    exclude 'kenneth cole'
+    exclude 'guess'
+    exclude 'anne klein'
+    exclude 'dkny'
+    exclude 'mvmt'
+    exclude 'novelty'
+    exclude 'tommy bahama'
+    exclude 'relic'
+    exclude 'zoo york'
+    exclude 'skagen'
+    exclude 'nixon'
+    exclude 'diesel'
+    exclude 'perry ellis'
+  [filter] Removed 622 listing(s) matching filter rules.
+  Done. 45 new, 1305 updated. DB: /home/opc/goodwill-scraper/watches.db
+[2026-04-17T06:00:01.858300+00:00] Starting scrape…
+  Fetched page 1 — 39/1903 listings
+  Fetched page 2 — 78/1903 listings
+  Fetched page 3 — 117/1903 listings
+  Fetched page 4 — 156/1903 listings
+  Fetched page 5 — 195/1903 listings
+  Fetched page 6 — 234/1903 listings
+  Fetched page 7 — 273/1903 listings
+  Fetched page 8 — 312/1903 listings
+  Fetched page 9 — 351/1903 listings
+  Fetched page 10 — 390/1903 listings
+  Fetched page 11 — 429/1903 listings
+  Fetched page 12 — 468/1903 listings
+  Fetched page 13 — 507/1903 listings
+  Fetched page 14 — 546/1903 listings
+  Fetched page 15 — 585/1903 listings
+  Fetched page 16 — 624/1903 listings
+  Fetched page 17 — 663/1903 listings
+  Fetched page 18 — 702/1903 listings
+  Fetched page 19 — 741/1903 listings
+  Fetched page 20 — 780/1903 listings
+  Fetched page 21 — 819/1903 listings
+  Fetched page 22 — 858/1903 listings
+  Fetched page 23 — 897/1903 listings
+  Fetched page 24 — 936/1903 listings
+  Fetched page 25 — 975/1903 listings
+  Fetched page 26 — 1014/1903 listings
+  Fetched page 27 — 1053/1903 listings
+  Fetched page 28 — 1092/1903 listings
+  Fetched page 29 — 1131/1903 listings
+  Fetched page 30 — 1170/1903 listings
+  Fetched page 31 — 1209/1903 listings
+  Fetched page 32 — 1248/1903 listings
+  Fetched page 33 — 1287/1903 listings
+  Fetched page 34 — 1326/1903 listings
+  Fetched page 35 — 1365/1903 listings
+  Fetched page 36 — 1404/1903 listings
+  Fetched page 37 — 1443/1903 listings
+  Fetched page 38 — 1482/1903 listings
+  Fetched page 39 — 1521/1903 listings
+  Fetched page 40 — 1560/1903 listings
+  Fetched page 41 — 1599/1903 listings
+  Fetched page 42 — 1638/1903 listings
+  Fetched page 43 — 1677/1903 listings
+  Fetched page 44 — 1716/1903 listings
+  Fetched page 45 — 1755/1903 listings
+  Fetched page 46 — 1794/1903 listings
+  Fetched page 47 — 1833/1903 listings
+  Fetched page 48 — 1872/1903 listings
+  Fetched page 49 — 1903/1903 listings
+  Fetched 1903 total listings from API.
+  [filter] 24 rule(s) loaded:
+    exclude 'parts only'
+    exclude 'for parts'
+    exclude 'not working'
+    exclude 'broken'
+    exclude 'as is'
+    exclude 'untested'
+    exclude 'invicta' unless title contains: 'pro diver', 'reserve', 'grand'
+    exclude 'armani'
+    exclude 'michael kors'
+    exclude 'nautica'
+    exclude 'fossil'
+    exclude 'kenneth cole'
+    exclude 'guess'
+    exclude 'anne klein'
+    exclude 'dkny'
+    exclude 'mvmt'
+    exclude 'novelty'
+    exclude 'tommy bahama'
+    exclude 'relic'
+    exclude 'zoo york'
+    exclude 'skagen'
+    exclude 'nixon'
+    exclude 'diesel'
+    exclude 'perry ellis'
+  [filter] Removed 608 listing(s) matching filter rules.
+  Done. 268 new, 1027 updated. DB: /home/opc/goodwill-scraper/watches.db
+[2026-04-18T06:00:01.554964+00:00] Starting scrape…
+  Fetched page 1 — 39/1975 listings
+  Fetched page 2 — 78/1975 listings
+  Fetched page 3 — 117/1975 listings
+  Fetched page 4 — 156/1975 listings
+  Fetched page 5 — 195/1975 listings
+  Fetched page 6 — 234/1975 listings
+  Fetched page 7 — 273/1975 listings
+  Fetched page 8 — 312/1975 listings
+  Fetched page 9 — 351/1975 listings
+  Fetched page 10 — 390/1975 listings
+  Fetched page 11 — 429/1975 listings
+  Fetched page 12 — 468/1975 listings
+  Fetched page 13 — 507/1975 listings
+  Fetched page 14 — 546/1975 listings
+  Fetched page 15 — 585/1975 listings
+  Fetched page 16 — 624/1975 listings
+  Fetched page 17 — 663/1975 listings
+  Fetched page 18 — 702/1975 listings
+  Fetched page 19 — 741/1975 listings
+  Fetched page 20 — 780/1975 listings
+  Fetched page 21 — 819/1975 listings
+  Fetched page 22 — 858/1975 listings
+  Fetched page 23 — 897/1975 listings
+  Fetched page 24 — 936/1975 listings
+  Fetched page 25 — 975/1975 listings
+  Fetched page 26 — 1014/1975 listings
+  Fetched page 27 — 1053/1975 listings
+  Fetched page 28 — 1092/1975 listings
+  Fetched page 29 — 1131/1975 listings
+  Fetched page 30 — 1170/1975 listings
+  Fetched page 31 — 1209/1975 listings
+  Fetched page 32 — 1248/1975 listings
+  Fetched page 33 — 1287/1975 listings
+  Fetched page 34 — 1326/1975 listings
+  Fetched page 35 — 1365/1975 listings
+  Fetched page 36 — 1404/1975 listings
+  Fetched page 37 — 1443/1975 listings
+  Fetched page 38 — 1482/1975 listings
+  Fetched page 39 — 1521/1975 listings
+  Fetched page 40 — 1560/1975 listings
+  Fetched page 41 — 1599/1975 listings
+  Fetched page 42 — 1638/1975 listings
+  Fetched page 43 — 1677/1975 listings
+  Fetched page 44 — 1716/1975 listings
+  Fetched page 45 — 1755/1975 listings
+  Fetched page 46 — 1794/1975 listings
+  Fetched page 47 — 1833/1975 listings
+  Fetched page 48 — 1872/1975 listings
+  Fetched page 49 — 1911/1975 listings
+  Fetched page 50 — 1950/1975 listings
+  Fetched page 51 — 1975/1975 listings
+  Fetched 1975 total listings from API.
+  [filter] 24 rule(s) loaded:
+    exclude 'parts only'
+    exclude 'for parts'
+    exclude 'not working'
+    exclude 'broken'
+    exclude 'as is'
+    exclude 'untested'
+    exclude 'invicta' unless title contains: 'pro diver', 'reserve', 'grand'
+    exclude 'armani'
+    exclude 'michael kors'
+    exclude 'nautica'
+    exclude 'fossil'
+    exclude 'kenneth cole'
+    exclude 'guess'
+    exclude 'anne klein'
+    exclude 'dkny'
+    exclude 'mvmt'
+    exclude 'novelty'
+    exclude 'tommy bahama'
+    exclude 'relic'
+    exclude 'zoo york'
+    exclude 'skagen'
+    exclude 'nixon'
+    exclude 'diesel'
+    exclude 'perry ellis'
+  [filter] Removed 627 listing(s) matching filter rules.
+  Done. 245 new, 1103 updated. DB: /home/opc/goodwill-scraper/watches.db
+[2026-04-19T06:00:01.640488+00:00] Starting scrape…
+  Fetched page 1 — 39/1917 listings
+  Fetched page 2 — 78/1917 listings
+  Fetched page 3 — 117/1917 listings
+  Fetched page 4 — 156/1917 listings
+  Fetched page 5 — 195/1917 listings
+  Fetched page 6 — 234/1917 listings
+  Fetched page 7 — 273/1917 listings
+  Fetched page 8 — 312/1917 listings
+  Fetched page 9 — 351/1917 listings
+  Fetched page 10 — 390/1917 listings
+  Fetched page 11 — 429/1917 listings
+  Fetched page 12 — 468/1917 listings
+  Fetched page 13 — 507/1917 listings
+  Fetched page 14 — 546/1917 listings
+  Fetched page 15 — 585/1917 listings
+  Fetched page 16 — 624/1917 listings
+  Fetched page 17 — 663/1917 listings
+  Fetched page 18 — 702/1917 listings
+  Fetched page 19 — 741/1917 listings
+  Fetched page 20 — 780/1917 listings
+  Fetched page 21 — 819/1917 listings
+  Fetched page 22 — 858/1917 listings
+  Fetched page 23 — 897/1917 listings
+  Fetched page 24 — 936/1917 listings
+  Fetched page 25 — 975/1917 listings
+  Fetched page 26 — 1014/1917 listings
+  Fetched page 27 — 1053/1917 listings
+  Fetched page 28 — 1092/1917 listings
+  Fetched page 29 — 1131/1917 listings
+  Fetched page 30 — 1170/1917 listings
+  Fetched page 31 — 1209/1917 listings
+  Fetched page 32 — 1248/1917 listings
+  Fetched page 33 — 1287/1917 listings
+  Fetched page 34 — 1326/1917 listings
+  Fetched page 35 — 1365/1917 listings
+  Fetched page 36 — 1404/1917 listings
+  Fetched page 37 — 1443/1917 listings
+  Fetched page 38 — 1482/1917 listings
+  Fetched page 39 — 1521/1917 listings
+  Fetched page 40 — 1560/1917 listings
+  Fetched page 41 — 1599/1917 listings
+  Fetched page 42 — 1638/1917 listings
+  Fetched page 43 — 1677/1917 listings
+  Fetched page 44 — 1716/1917 listings
+  Fetched page 45 — 1755/1917 listings
+  Fetched page 46 — 1794/1917 listings
+  Fetched page 47 — 1833/1917 listings
+  Fetched page 48 — 1872/1917 listings
+  Fetched page 49 — 1911/1917 listings
+  Fetched page 50 — 1917/1917 listings
+  Fetched 1917 total listings from API.
+  [filter] 24 rule(s) loaded:
+    exclude 'parts only'
+    exclude 'for parts'
+    exclude 'not working'
+    exclude 'broken'
+    exclude 'as is'
+    exclude 'untested'
+    exclude 'invicta' unless title contains: 'pro diver', 'reserve', 'grand'
+    exclude 'armani'
+    exclude 'michael kors'
+    exclude 'nautica'
+    exclude 'fossil'
+    exclude 'kenneth cole'
+    exclude 'guess'
+    exclude 'anne klein'
+    exclude 'dkny'
+    exclude 'mvmt'
+    exclude 'novelty'
+    exclude 'tommy bahama'
+    exclude 'relic'
+    exclude 'zoo york'
+    exclude 'skagen'
+    exclude 'nixon'
+    exclude 'diesel'
+    exclude 'perry ellis'
+  [filter] Removed 612 listing(s) matching filter rules.
+  Done. 135 new, 1170 updated. DB: /home/opc/goodwill-scraper/watches.db
+[2026-04-20T06:00:01.656120+00:00] Starting scrape…
+  Fetched page 1 — 39/1884 listings
+  Fetched page 2 — 78/1884 listings
+  Fetched page 3 — 117/1884 listings
+  Fetched page 4 — 156/1884 listings
+  Fetched page 5 — 195/1884 listings
+  Fetched page 6 — 234/1884 listings
+  Fetched page 7 — 273/1884 listings
+  Fetched page 8 — 312/1884 listings
+  Fetched page 9 — 351/1884 listings
+  Fetched page 10 — 390/1884 listings
+  Fetched page 11 — 429/1884 listings
+  Fetched page 12 — 468/1884 listings
+  Fetched page 13 — 507/1884 listings
+  Fetched page 14 — 546/1884 listings
+  Fetched page 15 — 585/1884 listings
+  Fetched page 16 — 624/1884 listings
+  Fetched page 17 — 663/1884 listings
+  Fetched page 18 — 702/1884 listings
+  Fetched page 19 — 741/1884 listings
+  Fetched page 20 — 780/1884 listings
+  Fetched page 21 — 819/1884 listings
+  Fetched page 22 — 858/1884 listings
+  Fetched page 23 — 897/1884 listings
+  Fetched page 24 — 936/1884 listings
+  Fetched page 25 — 975/1884 listings
+  Fetched page 26 — 1014/1884 listings
+  Fetched page 27 — 1053/1884 listings
+  Fetched page 28 — 1092/1884 listings
+  Fetched page 29 — 1131/1884 listings
+  Fetched page 30 — 1170/1884 listings
+  Fetched page 31 — 1209/1884 listings
+  Fetched page 32 — 1248/1884 listings
+  Fetched page 33 — 1287/1884 listings
+  Fetched page 34 — 1326/1884 listings
+  Fetched page 35 — 1365/1884 listings
+  Fetched page 36 — 1404/1884 listings
+  Fetched page 37 — 1443/1884 listings
+  Fetched page 38 — 1482/1884 listings
+  Fetched page 39 — 1521/1884 listings
+  Fetched page 40 — 1560/1884 listings
+  Fetched page 41 — 1599/1884 listings
+  Fetched page 42 — 1638/1884 listings
+  Fetched page 43 — 1677/1884 listings
+  Fetched page 44 — 1716/1884 listings
+  Fetched page 45 — 1755/1884 listings
+  Fetched page 46 — 1794/1884 listings
+  Fetched page 47 — 1833/1884 listings
+  Fetched page 48 — 1872/1884 listings
+  Fetched page 49 — 1884/1884 listings
+  Fetched 1884 total listings from API.
+  [filter] 24 rule(s) loaded:
+    exclude 'parts only'
+    exclude 'for parts'
+    exclude 'not working'
+    exclude 'broken'
+    exclude 'as is'
+    exclude 'untested'
+    exclude 'invicta' unless title contains: 'pro diver', 'reserve', 'grand'
+    exclude 'armani'
+    exclude 'michael kors'
+    exclude 'nautica'
+    exclude 'fossil'
+    exclude 'kenneth cole'
+    exclude 'guess'
+    exclude 'anne klein'
+    exclude 'dkny'
+    exclude 'mvmt'
+    exclude 'novelty'
+    exclude 'tommy bahama'
+    exclude 'relic'
+    exclude 'zoo york'
+    exclude 'skagen'
+    exclude 'nixon'
+    exclude 'diesel'
+    exclude 'perry ellis'
+  [filter] Removed 588 listing(s) matching filter rules.
+  Done. 133 new, 1163 updated. DB: /home/opc/goodwill-scraper/watches.db
+[2026-04-21T06:00:01.955081+00:00] Starting scrape…
+  Fetched page 1 — 39/2004 listings
+  Fetched page 2 — 78/2004 listings
+  Fetched page 3 — 117/2004 listings
+  Fetched page 4 — 156/2004 listings
+  Fetched page 5 — 195/2004 listings
+  Fetched page 6 — 234/2004 listings
+  Fetched page 7 — 273/2004 listings
+  Fetched page 8 — 312/2004 listings
+  Fetched page 9 — 351/2004 listings
+  Fetched page 10 — 390/2004 listings
+  Fetched page 11 — 429/2004 listings
+  Fetched page 12 — 468/2004 listings
+  Fetched page 13 — 507/2004 listings
+  Fetched page 14 — 546/2004 listings
+  Fetched page 15 — 585/2004 listings
+  Fetched page 16 — 624/2004 listings
+  Fetched page 17 — 663/2004 listings
+  Fetched page 18 — 702/2004 listings
+  Fetched page 19 — 741/2004 listings
+  Fetched page 20 — 780/2004 listings
+  Fetched page 21 — 819/2004 listings
+  Fetched page 22 — 858/2004 listings
+  Fetched page 23 — 897/2004 listings
+  Fetched page 24 — 936/2004 listings
+  Fetched page 25 — 975/2004 listings
+  Fetched page 26 — 1014/2004 listings
+  Fetched page 27 — 1053/2004 listings
+  Fetched page 28 — 1092/2004 listings
+  Fetched page 29 — 1131/2004 listings
+  Fetched page 30 — 1170/2004 listings
+  Fetched page 31 — 1209/2004 listings
+  Fetched page 32 — 1248/2004 listings
+  Fetched page 33 — 1287/2004 listings
+  Fetched page 34 — 1326/2004 listings
+  Fetched page 35 — 1365/2004 listings
+  Fetched page 36 — 1404/2004 listings
+  Fetched page 37 — 1443/2004 listings
+  Fetched page 38 — 1482/2004 listings
+  Fetched page 39 — 1521/2004 listings
+  Fetched page 40 — 1560/2004 listings
+  Fetched page 41 — 1599/2004 listings
+  Fetched page 42 — 1638/2004 listings
+  Fetched page 43 — 1677/2004 listings
+  Fetched page 44 — 1716/2004 listings
+  Fetched page 45 — 1755/2004 listings
+  Fetched page 46 — 1794/2004 listings
+  Fetched page 47 — 1833/2004 listings
+  Fetched page 48 — 1872/2004 listings
+  Fetched page 49 — 1911/2004 listings
+  Fetched page 50 — 1950/2004 listings
+  Fetched page 51 — 1989/2004 listings
+  Fetched page 52 — 2004/2004 listings
+  Fetched 2004 total listings from API.
+  [filter] 24 rule(s) loaded:
+    exclude 'parts only'
+    exclude 'for parts'
+    exclude 'not working'
+    exclude 'broken'
+    exclude 'as is'
+    exclude 'untested'
+    exclude 'invicta' unless title contains: 'pro diver', 'reserve', 'grand'
+    exclude 'armani'
+    exclude 'michael kors'
+    exclude 'nautica'
+    exclude 'fossil'
+    exclude 'kenneth cole'
+    exclude 'guess'
+    exclude 'anne klein'
+    exclude 'dkny'
+    exclude 'mvmt'
+    exclude 'novelty'
+    exclude 'tommy bahama'
+    exclude 'relic'
+    exclude 'zoo york'
+    exclude 'skagen'
+    exclude 'nixon'
+    exclude 'diesel'
+    exclude 'perry ellis'
+  [filter] Removed 636 listing(s) matching filter rules.
+  Done. 285 new, 1083 updated. DB: /home/opc/goodwill-scraper/watches.db
+[2026-04-22T06:00:02.203728+00:00] Starting scrape…
+  Fetched page 1 — 39/2113 listings
+  Fetched page 2 — 78/2113 listings
+  Fetched page 3 — 117/2113 listings
+  Fetched page 4 — 156/2113 listings
+  Fetched page 5 — 195/2113 listings
+  Fetched page 6 — 234/2113 listings
+  Fetched page 7 — 273/2113 listings
+  Fetched page 8 — 312/2113 listings
+  Fetched page 9 — 351/2113 listings
+  Fetched page 10 — 390/2113 listings
+  Fetched page 11 — 429/2113 listings
+  Fetched page 12 — 468/2113 listings
+  Fetched page 13 — 507/2113 listings
+  Fetched page 14 — 546/2113 listings
+  Fetched page 15 — 585/2113 listings
+  Fetched page 16 — 624/2113 listings
+  Fetched page 17 — 663/2113 listings
+  Fetched page 18 — 702/2113 listings
+  Fetched page 19 — 741/2113 listings
+  Fetched page 20 — 780/2113 listings
+  Fetched page 21 — 819/2113 listings
+  Fetched page 22 — 858/2113 listings
+  Fetched page 23 — 897/2113 listings
+  Fetched page 24 — 936/2113 listings
+  Fetched page 25 — 975/2113 listings
+  Fetched page 26 — 1014/2113 listings
+  Fetched page 27 — 1053/2113 listings
+  Fetched page 28 — 1092/2113 listings
+  Fetched page 29 — 1131/2113 listings
+  Fetched page 30 — 1170/2113 listings
+  Fetched page 31 — 1209/2113 listings
+  Fetched page 32 — 1248/2113 listings
+  Fetched page 33 — 1287/2113 listings
+  Fetched page 34 — 1326/2113 listings
+  Fetched page 35 — 1365/2113 listings
+  Fetched page 36 — 1404/2113 listings
+  Fetched page 37 — 1443/2113 listings
+  Fetched page 38 — 1482/2113 listings
+  Fetched page 39 — 1521/2113 listings
+  Fetched page 40 — 1560/2113 listings
+  Fetched page 41 — 1599/2113 listings
+  Fetched page 42 — 1638/2113 listings
+  Fetched page 43 — 1677/2113 listings
+  Fetched page 44 — 1716/2113 listings
+  Fetched page 45 — 1755/2113 listings
+  Fetched page 46 — 1794/2113 listings
+  Fetched page 47 — 1833/2113 listings
+  Fetched page 48 — 1872/2113 listings
+  Fetched page 49 — 1911/2113 listings
+  Fetched page 50 — 1950/2113 listings
+  Fetched page 51 — 1989/2113 listings
+  Fetched page 52 — 2028/2113 listings
+  Fetched page 53 — 2067/2113 listings
+  Fetched page 54 — 2106/2113 listings
+  Fetched page 55 — 2113/2113 listings
+  Fetched 2113 total listings from API.
+  [filter] 24 rule(s) loaded:
+    exclude 'parts only'
+    exclude 'for parts'
+    exclude 'not working'
+    exclude 'broken'
+    exclude 'as is'
+    exclude 'untested'
+    exclude 'invicta' unless title contains: 'pro diver', 'reserve', 'grand'
+    exclude 'armani'
+    exclude 'michael kors'
+    exclude 'nautica'
+    exclude 'fossil'
+    exclude 'kenneth cole'
+    exclude 'guess'
+    exclude 'anne klein'
+    exclude 'dkny'
+    exclude 'mvmt'
+    exclude 'novelty'
+    exclude 'tommy bahama'
+    exclude 'relic'
+    exclude 'zoo york'
+    exclude 'skagen'
+    exclude 'nixon'
+    exclude 'diesel'
+    exclude 'perry ellis'
+  [filter] Removed 691 listing(s) matching filter rules.
+  Done. 312 new, 1110 updated. DB: /home/opc/goodwill-scraper/watches.db
