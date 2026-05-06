@@ -71,7 +71,8 @@ def open_db(path: pathlib.Path) -> sqlite3.Connection:
             url           TEXT,
             first_seen    TEXT NOT NULL,
             last_seen     TEXT NOT NULL,
-            active        INTEGER NOT NULL DEFAULT 1
+            active        INTEGER NOT NULL DEFAULT 1,
+            tagged        INTEGER NOT NULL DEFAULT 0
         );
 
         CREATE TABLE IF NOT EXISTS scrape_runs (

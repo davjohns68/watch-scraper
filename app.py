@@ -15,7 +15,7 @@ import sqlite3
 from contextlib import contextmanager
 from datetime import datetime, timezone
 
-from flask import Flask, make_response, render_template_string, request
+from flask import Flask, make_response, render_template_string, request, redirect, url_for
 
 HERE       = pathlib.Path(__file__).parent
 DEFAULT_DB = HERE / "watches.db"
@@ -41,7 +41,7 @@ def get_listings(since: str = None) -> list:
         if since:
             return conn.execute("""
                 SELECT * FROM listings
-                WHERE active = 1 AND first_seen > ?
+                WHERE active = 1 AND (first_seen > ? OR tagged = 1)
                 ORDER BY end_time ASC
             """, (since,)).fetchall()
         else:
@@ -59,15 +59,15 @@ def get_total_active() -> int:
         ).fetchone()[0]
 
 
-def get_last_scrape() -> str:
+def get_last_scrape() -> dict:
     with get_db() as conn:
         try:
             row = conn.execute("""
-                SELECT finished_at FROM scrape_runs
+                SELECT finished_at, new_count FROM scrape_runs
                 WHERE finished_at IS NOT NULL
                 ORDER BY id DESC LIMIT 1
             """).fetchone()
-            return row[0] if row else None
+            return dict(row) if row else None
         except Exception:
             return None
 
@@ -212,7 +212,31 @@ TEMPLATE = """
       font-weight: 700;
       padding: 0.15rem 0.45rem;
       border-radius: 999px;
-      margin-bottom: 0.25rem;
+    }
+
+    .badge-tagged {
+      display: inline-block;
+      background: #e0e7ff;
+      color: #3730a3;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.45rem;
+      border-radius: 999px;
+    }
+
+    .btn-tag {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      line-height: 1;
+      padding: 0;
+      margin-right: 0.25rem;
+      vertical-align: middle;
+      transition: transform 0.15s;
+    }
+    .btn-tag:hover {
+      transform: scale(1.1);
     }
 
     .end-time { font-size: 0.75rem; color: #9ca3af; }
@@ -274,8 +298,22 @@ TEMPLATE = """
         <div class="card-img-placeholder">&#8987;</div>
       {% endif %}
       <div class="card-body">
-        <span class="badge-new">NEW</span>
+        <div style="display: flex; gap: 0.25rem; align-items: center; margin-bottom: 0.25rem; min-height: 1.2rem;">
+          {% if last_visit_raw and row['first_seen'] > last_visit_raw %}
+            <span class="badge-new">NEW</span>
+          {% elif not last_visit_raw %}
+            <span class="badge-new">NEW</span>
+          {% endif %}
+          {% if row.get('tagged') %}
+            <span class="badge-tagged">TAGGED</span>
+          {% endif %}
+        </div>
         <div class="card-title">
+          <form method="post" action="/toggle-tag/{{ row['item_id'] }}" style="display:inline;">
+            <button type="submit" class="btn-tag" title="Toggle tag">
+              {% if row.get('tagged') %}⭐{% else %}☆{% endif %}
+            </button>
+          </form>
           <a href="{{ row['url'] }}" target="_blank" rel="noopener">{{ row['title'] }}</a>
         </div>
         {% if row['end_time'] %}
@@ -292,7 +330,7 @@ TEMPLATE = """
 {% endif %}
 
 {% if last_scrape %}
-<div class="scrape-info">Last scraped: {{ last_scrape }}</div>
+<div class="scrape-info">Last scraped: {{ last_scrape }} &bull; {{ new_count }} new watch{{ 'es' if new_count != 1 else '' }} found</div>
 {% endif %}
 
 </body>
@@ -321,22 +359,27 @@ def index():
             display_lv = last_visit
 
     total_active = get_total_active()
-    last_scrape  = get_last_scrape()
+    scrape_data  = get_last_scrape()
+    last_scrape  = None
+    new_count    = 0
 
-    if last_scrape:
+    if scrape_data and scrape_data.get("finished_at"):
         try:
-            dt = datetime.fromisoformat(last_scrape)
+            dt = datetime.fromisoformat(scrape_data["finished_at"])
             last_scrape = dt.strftime("%B %d, %Y at %H:%M UTC")
         except Exception:
-            pass
+            last_scrape = scrape_data["finished_at"]
+        new_count = scrape_data.get("new_count") or 0
 
     html = render_template_string(
         TEMPLATE,
-        listings     = listings,
-        last_visit   = display_lv,
-        total_active = total_active,
-        last_scrape  = last_scrape,
-        showing_all  = showing_all,
+        listings       = listings,
+        last_visit     = display_lv,
+        last_visit_raw = last_visit or "",
+        total_active   = total_active,
+        last_scrape    = last_scrape,
+        new_count      = new_count,
+        showing_all    = showing_all,
     )
 
     resp = make_response(html)
@@ -361,6 +404,14 @@ def mark_seen():
         samesite="Lax",
     )
     return resp
+
+
+@app.route("/toggle-tag/<item_id>", methods=["POST"])
+def toggle_tag(item_id):
+    with get_db() as conn:
+        conn.execute("UPDATE listings SET tagged = 1 - tagged WHERE item_id = ?", (item_id,))
+        conn.commit()
+    return redirect(request.referrer or url_for('index'))
 
 
 if __name__ == "__main__":
