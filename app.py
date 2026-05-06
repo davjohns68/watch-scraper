@@ -309,7 +309,7 @@ TEMPLATE = """
           {% endif %}
         </div>
         <div class="card-title">
-          <form method="post" action="/toggle-tag/{{ row['item_id'] }}" style="display:inline;">
+          <form method="post" action="/toggle-tag/{{ row['item_id'] }}" class="toggle-form" style="display:inline;">
             <button type="submit" class="btn-tag" title="Toggle tag">
               {% if row['tagged'] %}⭐{% else %}☆{% endif %}
             </button>
@@ -332,6 +332,44 @@ TEMPLATE = """
 {% if last_scrape %}
 <div class="scrape-info">Last scraped: {{ last_scrape }} &bull; {{ new_count }} new watch{{ 'es' if new_count != 1 else '' }} found</div>
 {% endif %}
+
+<script>
+document.querySelectorAll('.toggle-form').forEach(form => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.btn-tag');
+    const isTagged = btn.textContent.trim() === '⭐';
+    
+    // Optimistic UI update
+    btn.textContent = isTagged ? '☆' : '⭐';
+    
+    const cardBody = form.closest('.card-body');
+    const badgeContainer = cardBody.querySelector('div:first-child');
+    if (isTagged) {
+      const badge = badgeContainer.querySelector('.badge-tagged');
+      if (badge) badge.remove();
+    } else {
+      if (!badgeContainer.querySelector('.badge-tagged')) {
+        const badge = document.createElement('span');
+        badge.className = 'badge-tagged';
+        badge.textContent = 'TAGGED';
+        badgeContainer.appendChild(badge);
+      }
+    }
+
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' }
+      });
+    } catch (err) {
+      console.error(err);
+      // Revert on error
+      btn.textContent = isTagged ? '⭐' : '☆';
+    }
+  });
+});
+</script>
 
 </body>
 </html>
@@ -411,6 +449,8 @@ def toggle_tag(item_id):
     with get_db() as conn:
         conn.execute("UPDATE listings SET tagged = 1 - tagged WHERE item_id = ?", (item_id,))
         conn.commit()
+    if request.headers.get("Accept") == "application/json":
+        return {"status": "ok"}
     return redirect(request.referrer or url_for('index'))
 
 
