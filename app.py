@@ -260,7 +260,7 @@ TEMPLATE = """
 <body>
 
 <div class="page-header">
-  <h1>🕐 Men's Watches</h1>
+  <h1>🕐 Men's Watches <span style="font-size: 1rem; font-weight: normal; color: #666; margin-left: 0.5rem;">({{ listings|length }} shown)</span></h1>
   <span class="meta">ShopGoodwill &bull; {{ total_active }} active listing{{ 's' if total_active != 1 else '' }} in DB</span>
 </div>
 
