@@ -304,14 +304,14 @@ TEMPLATE = """
           {% elif not last_visit_raw %}
             <span class="badge-new">NEW</span>
           {% endif %}
-          {% if row.get('tagged') %}
+          {% if row['tagged'] %}
             <span class="badge-tagged">TAGGED</span>
           {% endif %}
         </div>
         <div class="card-title">
           <form method="post" action="/toggle-tag/{{ row['item_id'] }}" style="display:inline;">
             <button type="submit" class="btn-tag" title="Toggle tag">
-              {% if row.get('tagged') %}⭐{% else %}☆{% endif %}
+              {% if row['tagged'] %}⭐{% else %}☆{% endif %}
             </button>
           </form>
           <a href="{{ row['url'] }}" target="_blank" rel="noopener">{{ row['title'] }}</a>
