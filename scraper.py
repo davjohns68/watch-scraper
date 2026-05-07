@@ -14,6 +14,7 @@ Dependencies:
 
 import argparse
 import json
+import os
 import pathlib
 import sqlite3
 import sys
@@ -52,6 +53,33 @@ HEADERS = {
 HERE           = pathlib.Path(__file__).parent
 DEFAULT_DB     = HERE / "watches.db"
 DEFAULT_CONFIG = HERE / "filters.json"
+ENV_PATH       = HERE / ".env"
+
+def load_env():
+    if ENV_PATH.exists():
+        with open(ENV_PATH, encoding="utf-8") as f:
+            for line in f:
+                if "=" in line and not line.strip().startswith("#"):
+                    k, v = line.strip().split("=", 1)
+                    os.environ[k] = v
+
+load_env()
+DISCORD_WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL")
+
+def send_discord_alert(embed):
+    if not DISCORD_WEBHOOK_URL:
+        return
+    payload = {
+        "username": "WatchBot of Doom 🤘",
+        "avatar_url": "https://cdn-icons-png.flaticon.com/512/1753/1753311.png",
+        "embeds": [embed]
+    }
+    try:
+        r = requests.post(DISCORD_WEBHOOK_URL, json=payload, timeout=10)
+        r.raise_for_status()
+    except Exception as e:
+        print(f"  [error] Failed to send Discord alert: {e}", file=sys.stderr)
+
 
 # ── Database ──────────────────────────────────────────────────────────────────
 
@@ -143,6 +171,23 @@ def upsert_listings(conn: sqlite3.Connection, items: list, now: str) -> tuple:
                      :seller, :condition, :image_url, :url, :first_seen, :last_seen, :active)
             """, row)
             new_count += 1
+            
+            if DISCORD_WEBHOOK_URL:
+                price_val = row['current_price']
+                try:
+                    price_str = f"${float(price_val):,.2f}" if price_val is not None else "N/A"
+                except (ValueError, TypeError):
+                    price_str = f"${price_val}"
+                    
+                embed = {
+                    "title": "🎸 New Metal-Worthy Timepiece! 🤘",
+                    "description": f"**{row['title']}**\n\n**Price:** {price_str}\n**Bids:** {row['num_bids']}\n**Seller:** {row['seller']}\n**Condition:** {row['condition']}",
+                    "url": row['url'],
+                    "color": 15158332, # Brutal Red
+                    "image": {"url": row['image_url']},
+                    "timestamp": now
+                }
+                send_discord_alert(embed)
 
     # Mark anything not seen this run as inactive (listing has ended or been removed)
     conn.execute(
