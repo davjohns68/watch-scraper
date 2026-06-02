@@ -111,6 +111,13 @@ def open_db(path: pathlib.Path) -> sqlite3.Connection:
             new_count   INTEGER,
             updated_count INTEGER
         );
+        CREATE TABLE IF NOT EXISTS price_history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            item_id TEXT,
+            price REAL,
+            timestamp TEXT,
+            FOREIGN KEY(item_id) REFERENCES listings(item_id)
+        );
     """)
     conn.commit()
     return conn
@@ -127,7 +134,7 @@ def upsert_listings(conn: sqlite3.Connection, items: list, now: str) -> tuple:
             continue
 
         existing = conn.execute(
-            "SELECT item_id FROM listings WHERE item_id = ?", (item_id,)
+            "SELECT item_id, current_price FROM listings WHERE item_id = ?", (item_id,)
         ).fetchone()
 
         row = {
@@ -160,6 +167,12 @@ def upsert_listings(conn: sqlite3.Connection, items: list, now: str) -> tuple:
                 WHERE item_id = :item_id
             """, row)
             updated_count += 1
+            
+            if existing['current_price'] != row['current_price']:
+                conn.execute(
+                    "INSERT INTO price_history (item_id, price, timestamp) VALUES (?, ?, ?)",
+                    (item_id, row['current_price'], now)
+                )
         else:
             row["first_seen"] = now
             conn.execute("""
@@ -171,6 +184,11 @@ def upsert_listings(conn: sqlite3.Connection, items: list, now: str) -> tuple:
                      :seller, :condition, :image_url, :url, :first_seen, :last_seen, :active)
             """, row)
             new_count += 1
+            
+            conn.execute(
+                "INSERT INTO price_history (item_id, price, timestamp) VALUES (?, ?, ?)",
+                (item_id, row['current_price'], now)
+            )
             
             if DISCORD_WEBHOOK_URL:
                 price_val = row['current_price']

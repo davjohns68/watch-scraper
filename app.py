@@ -36,9 +36,15 @@ def get_db():
         conn.close()
 
 
-def get_listings(since: str = None) -> list:
+def get_listings(since: str = None, status: str = "active") -> list:
     with get_db() as conn:
-        if since:
+        if status == "ended":
+            return conn.execute("""
+                SELECT * FROM listings
+                WHERE active = 0 AND tagged = 1
+                ORDER BY end_time DESC
+            """).fetchall()
+        elif since:
             return conn.execute("""
                 SELECT * FROM listings
                 WHERE active = 1 AND (first_seen > ? OR tagged = 1)
@@ -52,11 +58,11 @@ def get_listings(since: str = None) -> list:
             """).fetchall()
 
 
-def get_total_active() -> int:
+def get_counts() -> dict:
     with get_db() as conn:
-        return conn.execute(
-            "SELECT COUNT(*) FROM listings WHERE active = 1"
-        ).fetchone()[0]
+        active_count = conn.execute("SELECT COUNT(*) FROM listings WHERE active = 1").fetchone()[0]
+        ended_count = conn.execute("SELECT COUNT(*) FROM listings WHERE active = 0 AND tagged = 1").fetchone()[0]
+        return {"active": active_count, "ended": ended_count}
 
 
 def get_last_scrape() -> dict:
@@ -261,9 +267,15 @@ TEMPLATE = """
 
 <div class="page-header">
   <h1>🕐 Men's Watches <span style="font-size: 1rem; font-weight: normal; color: #666; margin-left: 0.5rem;">({{ listings|length }} shown)</span></h1>
-  <span class="meta">ShopGoodwill &bull; {{ total_active }} active listing{{ 's' if total_active != 1 else '' }} in DB</span>
+  <span class="meta">ShopGoodwill &bull; {{ counts.active }} active listing{{ 's' if counts.active != 1 else '' }} in DB</span>
 </div>
 
+<div class="actions">
+  <a class="btn {% if current_status == 'active' %}btn-primary{% else %}btn-secondary{% endif %}" href="/">Active ({{ counts.active }})</a>
+  <a class="btn {% if current_status == 'ended' %}btn-primary{% else %}btn-secondary{% endif %}" href="/?status=ended">Ended Tagged ({{ counts.ended }})</a>
+</div>
+
+{% if current_status == 'active' %}
 <div class="actions">
   <form method="post" action="/mark-seen">
     <button class="btn btn-primary" type="submit">&#10003; Mark all seen</button>
@@ -273,14 +285,19 @@ TEMPLATE = """
     <a class="btn btn-secondary" href="/">Show new only</a>
   {% endif %}
 </div>
+{% endif %}
 
-{% if last_visit %}
-<div class="last-visit-note">
-  Showing listings first seen after your last visit:
-  <strong>{{ last_visit }}</strong>
-</div>
+{% if current_status == 'active' %}
+  {% if last_visit %}
+  <div class="last-visit-note">
+    Showing listings first seen after your last visit:
+    <strong>{{ last_visit }}</strong>
+  </div>
+  {% else %}
+  <div class="last-visit-note">First visit — showing all active listings.</div>
+  {% endif %}
 {% else %}
-<div class="last-visit-note">First visit — showing all active listings.</div>
+  <div class="last-visit-note">Showing ended or sold listings that you have tagged.</div>
 {% endif %}
 
 {% if not listings %}
@@ -299,10 +316,14 @@ TEMPLATE = """
       {% endif %}
       <div class="card-body">
         <div style="display: flex; gap: 0.25rem; align-items: center; margin-bottom: 0.25rem; min-height: 1.2rem;">
-          {% if last_visit_raw and row['first_seen'] > last_visit_raw %}
-            <span class="badge-new">NEW</span>
-          {% elif not last_visit_raw %}
-            <span class="badge-new">NEW</span>
+          {% if current_status == 'active' %}
+            {% if last_visit_raw and row['first_seen'] > last_visit_raw %}
+              <span class="badge-new">NEW</span>
+            {% elif not last_visit_raw %}
+              <span class="badge-new">NEW</span>
+            {% endif %}
+          {% else %}
+            <span class="badge-new" style="background:#f3f4f6; color:#4b5563;">ENDED</span>
           {% endif %}
           {% if row['tagged'] %}
             <span class="badge-tagged">TAGGED</span>
@@ -384,8 +405,14 @@ COOKIE_NAME = "last_visit"
 def index():
     last_visit  = request.cookies.get(COOKIE_NAME)
     showing_all = request.args.get("all") == "1"
+    status      = request.args.get("status", "active")
 
-    if showing_all or not last_visit:
+    counts = get_counts()
+
+    if status == "ended":
+        listings   = get_listings(status="ended")
+        display_lv = None
+    elif showing_all or not last_visit:
         listings   = get_listings()
         display_lv = None
     else:
@@ -396,7 +423,6 @@ def index():
         except Exception:
             display_lv = last_visit
 
-    total_active = get_total_active()
     scrape_data  = get_last_scrape()
     last_scrape  = None
     new_count    = 0
@@ -414,10 +440,11 @@ def index():
         listings       = listings,
         last_visit     = display_lv,
         last_visit_raw = last_visit or "",
-        total_active   = total_active,
+        counts         = counts,
         last_scrape    = last_scrape,
         new_count      = new_count,
         showing_all    = showing_all,
+        current_status = status,
     )
 
     resp = make_response(html)
