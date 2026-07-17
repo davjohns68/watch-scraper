@@ -127,6 +127,14 @@
 			"exceptions": []
 		},
 		{
+			"keyword": "costume",
+			"exceptions": []
+		},
+		{
+			"keyword": "fashion",
+			"exceptions": []
+		},
+		{
 			"keyword": "marc jacobs",
 			"exceptions": []
 		}
