@@ -137,6 +137,22 @@
 		{
 			"keyword": "benyar",
 			"exceptions": []
+		},
+		{
+			"keyword": "poedagar",
+			"exceptions": []
+		},
+		{
+			"keyword": "akribos",
+			"exceptions": []
+		},
+		{
+			"keyword": "cheetah",
+			"exceptions": []
+		},
+		{
+			"keyword": "marc ecko",
+			"exceptions": []
 		}
 	]
 }
