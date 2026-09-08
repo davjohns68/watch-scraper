@@ -205,7 +205,7 @@ def upsert_listings(conn: sqlite3.Connection, items: list, now: str) -> tuple:
                     "image": {"url": row['image_url']},
                     "timestamp": now
                 }
-                send_discord_alert(embed)
+                #send_discord_alert(embed)
 
     # Mark anything not seen this run as inactive (listing has ended or been removed)
     conn.execute(
