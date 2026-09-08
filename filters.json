@@ -153,6 +153,30 @@
 		{
 			"keyword": "marc ecko",
 			"exceptions": []
+		},
+		{
+			"keyword": "shark",
+			"exceptions": []
+		},
+		{
+			"keyword": "victorinox",
+			"exceptions": ["automatic"]
+		},
+		{
+			"keyword": "swiss military",
+			"exceptions": ["automatic"]
+		},
+		{
+			"keyword": "suunto",
+			"exceptions": []
+		},
+		{
+			"keyword": "joseph abboud",
+			"exceptions": []
+		},
+		{
+			"keyword": "eddit bauer",
+			"exceptions": []
 		}
 	]
 }
