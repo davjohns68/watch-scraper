@@ -280,10 +280,13 @@ TEMPLATE = """
   <form method="post" action="/mark-seen">
     <button class="btn btn-primary" type="submit">&#10003; Mark all seen</button>
   </form>
-  <a class="btn btn-secondary" href="/?all=1">View all active</a>
+  <a class="btn btn-secondary" href="/?all=1{% if tag_filter != 'all' %}&filter={{ tag_filter }}{% endif %}">View all active</a>
   {% if showing_all %}
-    <a class="btn btn-secondary" href="/">Show new only</a>
+    <a class="btn btn-secondary" href="/?{% if tag_filter != 'all' %}filter={{ tag_filter }}{% endif %}">Show new only</a>
   {% endif %}
+  <a class="btn {% if tag_filter == 'all' %}btn-primary{% else %}btn-secondary{% endif %}" href="?{% if showing_all %}all=1&{% endif %}filter=all">All Tags</a>
+  <a class="btn {% if tag_filter == 'tagged' %}btn-primary{% else %}btn-secondary{% endif %}" href="?{% if showing_all %}all=1&{% endif %}filter=tagged">Tagged Only</a>
+  <a class="btn {% if tag_filter == 'untagged' %}btn-primary{% else %}btn-secondary{% endif %}" href="?{% if showing_all %}all=1&{% endif %}filter=untagged">Untagged Only</a>
 </div>
 {% endif %}
 
@@ -406,6 +409,7 @@ def index():
     last_visit  = request.cookies.get(COOKIE_NAME)
     showing_all = request.args.get("all") == "1"
     status      = request.args.get("status", "active")
+    tag_filter  = request.args.get("filter", "all")
 
     counts = get_counts()
 
@@ -422,6 +426,11 @@ def index():
             display_lv = dt.strftime("%B %d, %Y at %H:%M UTC")
         except Exception:
             display_lv = last_visit
+
+    if tag_filter == "tagged":
+        listings = [r for r in listings if r["tagged"] == 1]
+    elif tag_filter == "untagged":
+        listings = [r for r in listings if r["tagged"] == 0]
 
     scrape_data  = get_last_scrape()
     last_scrape  = None
@@ -445,6 +454,7 @@ def index():
         new_count      = new_count,
         showing_all    = showing_all,
         current_status = status,
+        tag_filter     = tag_filter,
     )
 
     resp = make_response(html)
