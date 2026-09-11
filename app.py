@@ -284,9 +284,9 @@ TEMPLATE = """
   {% if showing_all %}
     <a class="btn btn-secondary" href="/?{% if tag_filter != 'all' %}filter={{ tag_filter }}{% endif %}">Show new only</a>
   {% endif %}
-  <a class="btn {% if tag_filter == 'all' %}btn-primary{% else %}btn-secondary{% endif %}" href="?{% if showing_all %}all=1&{% endif %}filter=all">All Tags</a>
-  <a class="btn {% if tag_filter == 'tagged' %}btn-primary{% else %}btn-secondary{% endif %}" href="?{% if showing_all %}all=1&{% endif %}filter=tagged">Tagged Only</a>
-  <a class="btn {% if tag_filter == 'untagged' %}btn-primary{% else %}btn-secondary{% endif %}" href="?{% if showing_all %}all=1&{% endif %}filter=untagged">Untagged Only</a>
+  <a class="btn {% if tag_filter == 'all' %}btn-primary{% else %}btn-secondary{% endif %}" href="?filter=all">All Tags</a>
+  <a class="btn {% if tag_filter == 'tagged' %}btn-primary{% else %}btn-secondary{% endif %}" href="?filter=tagged">Tagged Only</a>
+  <a class="btn {% if tag_filter == 'untagged' %}btn-primary{% else %}btn-secondary{% endif %}" href="?filter=untagged">Untagged Only</a>
 </div>
 {% endif %}
 
@@ -430,7 +430,10 @@ def index():
     if tag_filter == "tagged":
         listings = [r for r in listings if r["tagged"] == 1]
     elif tag_filter == "untagged":
-        listings = [r for r in listings if r["tagged"] == 0]
+        if last_visit:
+            listings = [r for r in listings if r["tagged"] == 0 and r["first_seen"] > last_visit]
+        else:
+            listings = [r for r in listings if r["tagged"] == 0]
 
     scrape_data  = get_last_scrape()
     last_scrape  = None
