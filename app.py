@@ -461,13 +461,6 @@ def index():
     )
 
     resp = make_response(html)
-    if not showing_all:
-        resp.set_cookie(
-            COOKIE_NAME,
-            datetime.now(timezone.utc).isoformat(),
-            max_age=60 * 60 * 24 * 365,
-            samesite="Lax",
-        )
     return resp
 
 
