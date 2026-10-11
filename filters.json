@@ -177,6 +177,78 @@
 		{
 			"keyword": "eddie bauer",
 			"exceptions": []
-		}
+		},
+    {
+      "keyword": "coleman",
+      "exceptions": []
+    },
+    {
+      "keyword": "adidas",
+      "exceptions": []
+    },
+    {
+      "keyword": "pulsar",
+      "exceptions": []
+    },
+    {
+      "keyword": "u.s. polo",
+      "exceptions": []
+    },
+    {
+      "keyword": "vince camuto",
+      "exceptions": []
+    },
+    {
+      "keyword": "bill blass",
+      "exceptions": []
+    },
+    {
+      "keyword": "burei",
+      "exceptions": []
+    },
+    {
+      "keyword": "fuel",
+      "exceptions": []
+    },
+    {
+      "keyword": "legion",
+      "exceptions": []
+    },
+    {
+      "keyword": "wegner",
+      "exceptions": []
+    },
+    {
+      "keyword": "columbia",
+      "exceptions": []
+    },
+    {
+      "keyword": "charles raymond",
+      "exceptions": []
+    },
+    {
+      "keyword": "vincero",
+      "exceptions": []
+    },
+    {
+      "keyword": "swiss army",
+      "exceptions": []
+    },
+    {
+      "keyword": "nike",
+      "exceptions": []
+    },
+    {
+      "keyword": "coleman",
+      "exceptions": []
+    },
+    {
+      "keyword": "lucien piccard",
+      "exceptions": []
+    },
+    {
+      "keyword": "lige",
+      "exceptions": []
+    }
 	]
 }
